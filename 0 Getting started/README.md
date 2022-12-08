@@ -23,7 +23,7 @@
 
 PyCharm是一款主流IDE(Integrated Development Environment)。现在的开发者主要使用的IDE还有VS Code。
 
-```
+---
 P.S. 编辑器(Editor)和集成开发环境(IDE)有什么区别
 
 编辑器：记事本, Sublime Text, Vim, etc.
@@ -31,7 +31,7 @@ P.S. 编辑器(Editor)和集成开发环境(IDE)有什么区别
 
 Editor主要负责编辑文本，提供一些基础的开发支持（语法高亮、自动补全等），更轻量
 IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的语法支持、debug模块、单元测试、git模块等，大大提升了开发的效率。（所有的功能也都可以使用命令行指令实现。我们会先使用命令行来进行操作，这样会帮助我们了解IDE背后是怎么工作的。熟练之后你会发现所有的可视化界面背后都是非常简单的代码）
-```
+---
 
 [安装PyCharm Community Edition](https://www.jetbrains.com/pycharm/download/#section=mac)
 
@@ -68,6 +68,6 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 
 * 配置IDE
     * （PyCharm）打开文件夹Programming101
-    * 大概了解各个部分都是什么
+    * 了解各个部分都是什么
 
 
