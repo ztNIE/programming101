@@ -39,14 +39,15 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 	* ```cmd> brew install git```
 	* ```cmd> git config --global user.name Leah```
 	* ```cmd> git config --global user.email almighty.fan@gmail.com```
-	* 注册Github账户并fork ztNIE的代码库，然后pull
-	* !!!!!删除这行!!!!!
+	* 注册Github账户并fork ztNIE的代码库，然后```cmd> git clone link```
+	* ~~删除这行之后提交~~
 	* ```cmd> git status```
 	* ```cmd> git add *```
 	* ```cmd> git commit```
 	* ```cmd> git config --global credential.helper store```
-	* 在github中生成密钥[链接](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+	* [在github中生成密钥](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 	* ```cmd> git push```
+    *  （Optional）[MIT: The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)
 
 ## 环境设置
 
@@ -67,5 +68,6 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 
 * 配置IDE
     * （PyCharm）打开文件夹Programming101
+    * 大概了解各个部分都是什么
 
 
