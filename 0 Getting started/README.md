@@ -42,8 +42,8 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 5. Git
 	* ```cmd> brew install git```
 	* ```cmd> git config --global user.name Leah```
-	* ```cmd> git config --global user.email almighty.fan@gmail.com```
-	* 注册Github账户并fork ztNIE的代码库，然后```cmd> git clone link```
+	* ```cmd> git config --global user.email almighty.fann@gmail.com```
+	* 注册Github账户并fork ztNIE的代码库，然后```cmd> git clone your_repository_link```
 	* ~~删除这行之后提交~~
 	* ```cmd> git status```
 	* ```cmd> git add *```
