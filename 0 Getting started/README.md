@@ -72,4 +72,4 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 
 * 配置IDE
     * （PyCharm）打开文件夹Programming101
-    * 了解各个部分都是什么
+    * 了解各个部分都是什么（terminal，python console， debug， 运行）
