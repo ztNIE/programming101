@@ -1,0 +1,54 @@
+# 0. Set up environment
+
+## 软件安装
+* Homebrew
+
+```homebrew```是macOS使用的一个包管理器，通过homebrew可以很方便的安装开发所需的各种package。
+
+```conda```是另一个很常见的包管理器。Conda的功能更强大，同时也更复杂，很容易把环境变量搞乱，在未来会产生很多头疼的问题。
+
+安装homebrew：[https://brew.sh/](https://brew.sh/)
+
+* Python 3.10
+
+1. 查看python2的版本  
+	* ```cmd> python --version```  
+2. 查看python3是否安装及版本
+	* ```cmd> which python3```  
+	* ```cmd> python3 --version```  
+3. 安装python 3.10 （若还未安装）  
+	* ```cmd> brew install python@3.10```
+	* ```cmd> python3 --version```
+* PyCharm
+
+PyCharm是一款主流IDE(Integrated Development Environment)。现在的开发者主要使用的IDE还有VS Code。
+
+```
+P.S. 编辑器(Editor)和集成开发环境(IDE)有什么区别
+
+编辑器：记事本, Sublime Text, Vim, etc.
+集成开发环境：VS Code, PyCharm(Python), IntelliJ IDEA(JAVA), etc.
+
+Editor主要负责编辑文本，提供一些基础的开发支持（语法高亮、自动补全等），更轻量
+IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的语法支持、debug模块、单元测试、git模块等，大
+大提升了开发的效率。（所有的功能也都可以使用命令行指令实现。我们会先使用命令行来进行操作，这样会帮
+助我们了解IDE背后是怎么工作的。熟练之后你会发现所有的可视化界面背后都是非常简单的代码）
+```
+[安装PyCharm Community Edition](https://www.jetbrains.com/pycharm/download/#section=mac)
+
+* Git
+	* ```cmd> brew install git```
+	* ```cmd> git config --global user.name Leah```
+	* ```cmd> git config --global user.email almighty.fan@gmail.com```
+	* (Optional) 注册Github账户并push repository
+
+## 环境设置
+* 虚拟环境
+
+1. 什么是虚拟环境（virtual environment）
+	* 虚拟环境是一个为某个项目单独隔离的Python环境。可以把它理解为在某一个项目的文件夹里又安装了一个python，而且只有这个项目在使用这个python
+* 为什么要使用虚拟环境
+	* 虚拟环境可以保证每一个项目都可以使用自己的依赖，这样可以避免不同的项目之间依赖冲突所带来的麻烦
+* 创建虚拟环境
+	* ```cmd> cd ~```
+	* ```git clone 
