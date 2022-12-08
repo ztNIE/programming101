@@ -55,8 +55,10 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 	* ```cmd> cd ~```
 	* ```cmd> git clone https://github.com/ztNIE/programming101.git```
 	* ```cmd> cd programming101```
-	* ```cmd> python3 -m venv [env_name]```
-	* ```cmd> bash bin/activate.sh```
+	* ```cmd> python3 -m venv your_env_name```
+	* ```cmd> source your_env_name/bin/activate```
+
+* 配置IDE
 
 	
 
