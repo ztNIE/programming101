@@ -39,7 +39,14 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 	* ```cmd> brew install git```
 	* ```cmd> git config --global user.name Leah```
 	* ```cmd> git config --global user.email almighty.fan@gmail.com```
-	* 注册Github账户并push repository
+	* 注册Github账户并fork ztNIE的代码库，然后pull
+	* !!!!!删除这行!!!!!
+	* ```cmd> git status```
+	* ```cmd> git add *```
+	* ```cmd> git commit```
+	* ```cmd> git config --global credential.helper store```
+	* 在github中生成密钥[链接](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+	* ```cmd> git push```
 
 ## 环境设置
 
@@ -53,13 +60,12 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 
 3. 创建虚拟环境
 	* ```cmd> cd ~```
-	* ```cmd> git clone https://github.com/ztNIE/programming101.git```
+	* ```cmd> git clone https://github.com/ztNIE/programming101.git  # 这一步可以使用Leah的代码库```
 	* ```cmd> cd programming101```
 	* ```cmd> python3 -m venv your_env_name```
 	* ```cmd> source your_env_name/bin/activate```
 
 * 配置IDE
-
-	
+    * （PyCharm）打开文件夹Programming101
 
 
