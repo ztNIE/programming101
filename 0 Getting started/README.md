@@ -19,9 +19,9 @@
 3. 安装python 3.10 （若还未安装）  
 	* ```cmd> brew install python@3.10```  
 	* ```cmd> python3 --version```
-4. PyCharm
+4. Visual Studio Code (VSCode)
 
-PyCharm是一款主流IDE(Integrated Development Environment)。现在的开发者主要使用的IDE还有VS Code。
+VSCode是一款主流IDE(Integrated Development Environment)。
 
 ---
 P.S. 编辑器(Editor)和集成开发环境(IDE)有什么区别
@@ -37,7 +37,8 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 
 ---
 
-[安装PyCharm Community Edition](https://www.jetbrains.com/pycharm/download/#section=mac)
+* [安装VSCode](https://www.jetbrains.com/pycharm/download/#section=mac)  
+* 安装插件Python
 
 5. Git
 	* ```cmd> brew install git```
