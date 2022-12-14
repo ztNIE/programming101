@@ -72,7 +72,8 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
 	* ```cmd> source your_env_name/bin/activate```
 
 * 配置IDE
-    * （PyCharm）打开文件夹Programming101
-    * 了解各个部分都是什么（terminal，python console， debug， 运行）
+    * （VSCode）打开文件夹Programming101
+    * 了解各个部分都是什么
     * hello_world.py (命令行运行，IDE运行)
-    * [PyCharm快捷键Cheat Sheet](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf)（建议打印一份放在电脑旁边随时看）
+    * hello_world.ipynb
+    * [VSCode快捷键Cheat Sheet](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)（建议打印一份放在电脑旁边随时看）
