@@ -77,3 +77,4 @@ IDE一般覆盖了开发时需要涉及的大部分功能，提供更强大的�
     * hello_world.py (命令行运行，IDE运行)
     * hello_world.ipynb
     * [VSCode快捷键Cheat Sheet](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)（建议打印一份放在电脑旁边随时看）
+	* 在setting里打开python type checking
