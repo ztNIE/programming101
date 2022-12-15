@@ -1,6 +1,6 @@
 # I didn't use function because it's not covered in the course yet.
 
-from math import isclose, inf
+from math import inf
 
 semi_annual_raise = 0.07
 r = 0.04
@@ -12,15 +12,14 @@ if __name__ == "__main__":
 
     search_upper_bound = 10000
     search_lower_bound = 0
-    last_search_pivot = inf
 
     is_solution_found = False
     step_count = 0
     down_payment = total_cost * portion_down_payment
 
-    best_result = [inf, inf]  # [portion_saved * 10000, step_count]
+    best_result = [inf, 0]  # [portion_saved * 10000, step_count]
 
-    while last_search_pivot != int((search_lower_bound + search_upper_bound) / 2):
+    while (search_upper_bound - search_lower_bound) > 1:
         step_count += 1
 
         # calculate saving in 36 month
@@ -40,7 +39,6 @@ if __name__ == "__main__":
         if num_of_month <= 36:
             is_solution_found = True
             search_upper_bound = search_pivot
-            last_search_pivot = search_pivot
 
             if best_result[0] > search_pivot:
                 best_result[0] = search_pivot
@@ -48,7 +46,6 @@ if __name__ == "__main__":
 
         else:
             search_lower_bound = search_pivot
-            last_search_pivot = search_pivot
     
     if is_solution_found:
         print(f"Best savings rate: 0.{best_result[0]}")
