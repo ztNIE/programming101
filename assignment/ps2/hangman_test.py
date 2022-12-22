@@ -1,7 +1,8 @@
 # hangman_test.py
 
 import unittest
-from hangman import is_word_guessed, get_guessed_word
+import string
+from hangman import is_word_guessed, get_guessed_word, get_available_letters
 
 class TestHangman(unittest.TestCase):
 
@@ -18,7 +19,8 @@ class TestHangman(unittest.TestCase):
     
     # Test get_available_letters
     def test_get_available_letters(self):
-        pass
+        self.assertEqual(get_available_letters([]), string.ascii_lowercase)
+        self.assertEqual(get_available_letters(['a','d']), 'bcefghijklmnopqrstuvwxyz')
 
 if __name__=="__main__":
     unittest.main()
