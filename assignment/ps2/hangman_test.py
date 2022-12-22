@@ -16,8 +16,9 @@ class TestHangman(unittest.TestCase):
         self.assertEqual(get_guessed_word("apple", ["m", "n", "l"]), "___l_")
         self.assertEqual(get_guessed_word("apple", ["a", "p", "l", "e"]), "apple")
     
+    # Test get_available_letters
     def test_get_available_letters(self):
-        
+        pass
 
 if __name__=="__main__":
     unittest.main()
