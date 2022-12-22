@@ -143,11 +143,11 @@ def hangman(secret_word):
     print(f"I am thinking of a word that is {len(secret_word)} letters long.")
     print_last_message(f"You have {warning_left} warnings left.")
 
-    while guess_left > 0:
+    while guess_left > 0 and not is_word_guessed(secret_word, letters_guessed):
       print(f"You have {guess_left} guesses left.")
       print(f"Available letters: {get_available_letters(letters_guessed)}")
 
-      user_input = input("Please guess a letter: ")
+      user_input = input("Please guess a letter: ").strip()
 
       # Check whether the input is a valid character
       if not is_input_valid(user_input):
@@ -173,8 +173,6 @@ def hangman(secret_word):
 
       if user_input in secret_word:
         print_last_message(f"Good guess: {get_guessed_word(secret_word, letters_guessed)}")
-        if is_word_guessed(secret_word, letters_guessed):
-          break
       else:
         guess_left -= 1
         print_last_message(f"Oops! That letter is not in my word: {get_guessed_word(secret_word, letters_guessed)}")
@@ -284,14 +282,14 @@ def hangman_with_hints(secret_word):
     print(f"I am thinking of a word that is {len(secret_word)} letters long.")
     print_last_message(f"You have {warning_left} warnings left.")
 
-    while guess_left > 0:
+    while guess_left > 0 and not is_word_guessed(secret_word, letters_guessed):
       print(f"You have {guess_left} guesses left.")
       print(f"Available letters: {get_available_letters(letters_guessed)}")
 
-      user_input = input("Please guess a letter: ")
+      user_input = input("Please guess a letter: ").strip()
 
       # Check wheter the user is asking hint
-      if user_input.strip() == "*":
+      if user_input == "*":
         print("Possible word matches are: ")
         show_possible_matches(get_guessed_word(secret_word, letters_guessed))
         print("--------")
@@ -321,8 +319,6 @@ def hangman_with_hints(secret_word):
 
       if user_input in secret_word:
         print_last_message(f"Good guess: {get_guessed_word(secret_word, letters_guessed)}")
-        if is_word_guessed(secret_word, letters_guessed):
-          break
       else:
         guess_left -= 1
         print_last_message(f"Oops! That letter is not in my word: {get_guessed_word(secret_word, letters_guessed)}")
@@ -348,6 +344,7 @@ if __name__ == "__main__":
     # uncomment the following two lines.
     
     # secret_word = choose_word(wordlist)
+    # secret_word = "tact"
     # hangman(secret_word)
 
 ###############
