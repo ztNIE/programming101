@@ -7,7 +7,6 @@ cost_of_house = 1000000
 starting_salary = int(input("Enter the starting salary: "))
 
 portion_down_payment =  portion_down_ratio * cost_of_house
-monthly_salary = starting_salary/12
 
 lower_bound = 0
 upper_bound = 10000
@@ -22,6 +21,7 @@ while upper_bound - lower_bound >=0:
     number_of_months = 0
     middle_point = int((lower_bound + upper_bound)/2)
     portion_saved = middle_point/10000
+    monthly_salary = starting_salary/12
 
     while current_savings < portion_down_payment:
         current_savings += portion_saved * monthly_salary + current_savings * r/12
