@@ -47,7 +47,7 @@ if __name__ == "__main__":
         else:
             search_lower_bound = search_pivot + 1
     
-    if is_solution_found:
+    if best_result[1] > 0:
         print(f"Best savings rate: 0.{best_result[0]}")
         print(f"Steps in bisection search: {best_result[1]}")
     else:
