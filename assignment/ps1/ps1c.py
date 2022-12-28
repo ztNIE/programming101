@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     best_result = [inf, 0]  # [portion_saved * 10000, step_count]
 
-    while (search_upper_bound - search_lower_bound) > 1:
+    while (search_upper_bound - search_lower_bound) >= 0:
         step_count += 1
 
         # calculate saving in 36 month
@@ -38,14 +38,14 @@ if __name__ == "__main__":
         
         if num_of_month <= 36:
             is_solution_found = True
-            search_upper_bound = search_pivot
+            search_upper_bound = search_pivot - 1
 
             if best_result[0] > search_pivot:
                 best_result[0] = search_pivot
                 best_result[1] = step_count
 
         else:
-            search_lower_bound = search_pivot
+            search_lower_bound = search_pivot + 1
     
     if is_solution_found:
         print(f"Best savings rate: 0.{best_result[0]}")
