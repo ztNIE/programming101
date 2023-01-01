@@ -91,8 +91,14 @@ def get_word_score(word, n):
     n: int >= 0
     returns: int >= 0
     """
+    word_lower = word.lower()
+
+    first_component = 0
+    for c in word_lower:
+        first_component += SCRABBLE_LETTER_VALUES[c]
     
-    pass  # TO DO... Remove this line when you implement this function
+    second_component = max(1, 7 * len(word_lower) - 3 * (n - len(word_lower)))
+    return first_component * second_component
 
 #
 # Make sure you understand how this function works and what it does!
