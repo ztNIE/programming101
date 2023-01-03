@@ -204,7 +204,7 @@ def penalize_invalid_input(game_state):
 def get_input(game_state):
     user_input = input("Please guess a letter: ").strip()
 
-    if is_input_hint(user_input):
+    if game_state["enable_hint"] and is_input_hint(user_input):
         print("Possible word matches are: ")
         show_possible_matches(get_guessed_word(
             game_state["secret_word"], game_state["letters_guessed"]))
@@ -239,7 +239,7 @@ def penalize_wrong_guess(game_state):
         game_state["guess_left"] -= 1
 
 
-def check_guess(game_state):
+def change_state_by_guess(game_state):
     user_input = game_state["user_input"]
 
     game_state["letters_guessed"].append(user_input)
@@ -258,7 +258,7 @@ def round_main(game_state):
         return
     if is_letter_already_guessed(game_state):
         return
-    check_guess(game_state)
+    change_state_by_guess(game_state)
 
 
 def round_end(game_state):
@@ -348,4 +348,5 @@ def print_name():
 if __name__ == "__main__":
 
     secret_word = choose_word(wordlist)
+    # hangman(secret_word)
     hangman_with_hints(secret_word)
