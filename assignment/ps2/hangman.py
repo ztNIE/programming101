@@ -118,7 +118,7 @@ def hangman(secret_word):
 
     Starts up an interactive game of Hangman.
 
-    * At the start of the game, let the user know how many 
+    * At the start of the game, let the user know how many
       letters the secret_word contains and how many guesses s/he starts with.
 
     * The user should start with 6 guesses
@@ -129,10 +129,10 @@ def hangman(secret_word):
     * Ask the user to supply one guess per round. Remember to make
       sure that the user puts in a letter!
 
-    * The user should receive feedback immediately after each guess 
+    * The user should receive feedback immediately after each guess
       about whether their guess appears in the computer's word.
 
-    * After each guess, you should display to the user the 
+    * After each guess, you should display to the user the
       partially guessed word so far.
 
     Follows the other limitations detailed in the problem write-up.
@@ -207,10 +207,10 @@ def match_with_gaps(my_word, other_word):
     '''
     my_word: string with _ characters, current guess of secret word
     other_word: string, regular English word
-    returns: boolean, True if all the actual letters of my_word match the 
+    returns: boolean, True if all the actual letters of my_word match the
         corresponding letters of other_word, or the letter is the special symbol
         _ , and my_word and other_word are of the same length;
-        False otherwise: 
+        False otherwise:
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
     my_word = my_word.strip()
@@ -250,14 +250,131 @@ def show_possible_matches(my_word):
     return result
 
 
+def print_hline():
+    print("-"*13)
+
+
+def print_warning(game_state):
+    print("You have {} warnings left.".format(game_state["warning_left"]))
+
+
+def game_start(game_state):
+    print("Welcome to the game Hangman!")
+    print("I am thinking of a word that is {} letters long.".format(
+        len(game_state["secret_word"])))
+    print_hline()
+
+
+def is_game_end(game_state):
+    return is_word_guessed(game_state["secret_word"], game_state["letters_guessed"]) or game_state["guess_left"] == 0
+
+
+def round_start(game_state):
+    print("You have {} guesses left.".format(game_state["guess_left"]))
+    print("Available letters: {}".format(
+        get_available_letters(game_state["letters_guessed"])))
+
+# return True if warning is subtracted, return False if guess is subtracted
+
+
+def subtract_warning(game_state) -> bool:
+    if game_state["warning_left"] != 0:
+        game_state["warning_left"] -= 1
+        return True
+    else:
+        game_state["guess_left"] -= 1
+        return False
+
+
+def penalize_invalid_input(game_state):
+    if subtract_warning(game_state):
+        print("Oops! That is not a valid letter. You have {} warnings left: {}".format(
+            game_state["warning_left"], get_guessed_word(game_state["secret_word"], game_state["letters_guessed"])))
+    else:
+        print("Oops! That is not a valid letter. You have no warnings left so you lose one guess: {}".format(
+            get_guessed_word(game_state["secret_word"], game_state["letters_guessed"])))
+
+
+# get_input would store the user's input if it's valid and return True; else it would return False
+def get_input(game_state):
+    user_input = input("Please guess a letter: ").strip()
+    if not is_input_valid(user_input):
+        penalize_invalid_input(game_state)
+        return False
+    game_state["user_input"] = user_input
+    return True
+
+
+def is_already_guessed(game_state):
+    if game_state["user_input"] in game_state["letters_guessed"]:
+        if subtract_warning(game_state):
+            print("Oops! You've already guessed that letter. You now have {} warnings left: {}".format(
+                game_state["warning_left"], get_guessed_word(game_state["secret_word"], game_state["letters_guessed"])))
+        else:
+            print("Oops! You've already guessed that letter. You have no warnings left so you lose one guess: {}".format(
+                get_guessed_word(game_state["secret_word"], game_state["letters_guessed"])))
+        return True
+    else:
+        return False
+
+
+def penalize_wrong_guess(game_state):
+    vowels = "aeiou"
+    if game_state["user_input"] in vowels:
+        game_state["guess_left"] -= 2
+    else:
+        game_state["guess_left"] -= 1
+
+
+def check_guess(game_state):
+    user_input = game_state["user_input"]
+
+    game_state["letters_guessed"].append(user_input)
+
+    if user_input in game_state["secret_word"]:
+        print("Good guess: {}".format(get_guessed_word(
+            game_state["secret_word"], game_state["letters_guessed"])))
+    else:
+        penalize_wrong_guess(game_state)
+        print("Oops! The letter is not in my word: {}".format(
+            get_guessed_word(game_state["secret_word"], game_state["letters_guessed"])))
+
+
+def game_main(game_state):
+
+    round_start(game_state)
+    if not get_input(game_state):
+        return
+
+    if is_already_guessed(game_state):
+        return
+
+    check_guess(game_state)
+
+
+def game_end(game_state):
+    if is_word_guessed(game_state["secret_word"], game_state["letters_guessed"]):
+        print("Congratulations, you won!")
+        print("Your total score is for this game is: {}".format(get_score(game_state["secret_word"], game_state["guess_left"])))
+    else:
+        print("Sorry, you ran out of guesses. The word is {}".format(game_state["secret_word"]))
+
+
 def hangman_update(secret_word):
     # Init game_state
     game_state = {"guess_left": 6,
                   "warning_left": 3,
                   "letters_guessed": [],
                   "secret_word": secret_word,
-                  "cur_input": ""
+                  "user_input": ""
                   }
+    game_start(game_state)
+
+    while not is_game_end(game_state):
+        game_main(game_state)
+        print_hline()
+
+    game_end(game_state)
 
 
 def hangman_with_hints(secret_word):
@@ -372,5 +489,8 @@ if __name__ == "__main__":
     # To test part 3 re-comment out the above lines and
     # uncomment the following two lines.
 
-    secret_word = choose_word(wordlist)
-    hangman_with_hints(secret_word)
+    # secret_word = choose_word(wordlist)
+    # hangman_with_hints(secret_word)
+
+    secret_word = "apple"
+    hangman_update(secret_word)
