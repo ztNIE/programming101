@@ -154,6 +154,7 @@ def is_input_hint(user_input):
     return user_input == "*"
 
 
+# TODO: Fix score
 def get_score(secret_word, guess_left):
     return len(tuple(list(secret_word))) * guess_left
 
@@ -217,7 +218,7 @@ def get_input(game_state):
     return True
 
 
-def is_letter_guessed(game_state):
+def is_letter_already_guessed(game_state):
     if game_state["user_input"] in game_state["letters_guessed"]:
         if subtract_warning(game_state):
             print("Oops! You've already guessed that letter. You now have {} warnings left: {}".format(
@@ -255,7 +256,7 @@ def check_guess(game_state):
 def round_main(game_state):
     if not get_input(game_state):
         return
-    if is_letter_guessed(game_state):
+    if is_letter_already_guessed(game_state):
         return
     check_guess(game_state)
 
