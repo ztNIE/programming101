@@ -217,7 +217,7 @@ def get_input(game_state):
     return True
 
 
-def is_already_guessed(game_state):
+def is_letter_guessed(game_state):
     if game_state["user_input"] in game_state["letters_guessed"]:
         if subtract_warning(game_state):
             print("Oops! You've already guessed that letter. You now have {} warnings left: {}".format(
@@ -252,17 +252,23 @@ def check_guess(game_state):
             get_guessed_word(game_state["secret_word"], game_state["letters_guessed"])))
 
 
+def round_main(game_state):
+    if not get_input(game_state):
+        return
+    if is_letter_guessed(game_state):
+        return
+    check_guess(game_state)
+
+
+def round_end(game_state):
+    print_hline()
+
+
 def game_main(game_state):
 
     round_start(game_state)
-
-    if not get_input(game_state):
-        return
-
-    if is_already_guessed(game_state):
-        return
-
-    check_guess(game_state)
+    round_main(game_state)
+    round_end(game_state)
 
 
 def game_end(game_state):
@@ -288,7 +294,6 @@ def hangman(secret_word, enable_hint=False):
 
     while not is_game_end(game_state):
         game_main(game_state)
-        print_hline()
 
     game_end(game_state)
 
@@ -331,6 +336,8 @@ def hangman_with_hints(secret_word):
     # FILL IN YOUR CODE HERE AND DELETE "pass"
     hangman(secret_word, enable_hint=True)
 
+def print_name():
+    print(f"__name__ = {__name__}")
 
 # When you've completed your hangman_with_hint function, comment the two similar
 # lines above that were used to run the hangman function, and then uncomment
