@@ -156,7 +156,7 @@ def is_input_hint(user_input):
 
 # TODO: Fix score
 def get_score(secret_word, guess_left):
-    return len(tuple(list(secret_word))) * guess_left
+    return len(set(list(secret_word))) * guess_left
 
 
 def print_hline():
