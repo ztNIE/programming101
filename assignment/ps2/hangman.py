@@ -154,7 +154,6 @@ def is_input_hint(user_input):
     return user_input == "*"
 
 
-# TODO: Fix score
 def get_score(secret_word, guess_left):
     return len(set(list(secret_word))) * guess_left
 
@@ -337,6 +336,7 @@ def hangman_with_hints(secret_word):
     # FILL IN YOUR CODE HERE AND DELETE "pass"
     hangman(secret_word, enable_hint=True)
 
+
 def print_name():
     print(f"__name__ = {__name__}")
 
@@ -344,6 +344,7 @@ def print_name():
 # lines above that were used to run the hangman function, and then uncomment
 # these two lines and run this file to test!
 # Hint: You might want to pick your own secret_word while you're testing.
+
 
 if __name__ == "__main__":
 
