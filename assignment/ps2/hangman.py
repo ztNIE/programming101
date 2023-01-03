@@ -50,8 +50,7 @@ def choose_word(wordlist):
 # so that it can be accessed from anywhere in the program
 wordlist = load_words()
 
-
-def is_word_guessed(secret_word, letters_guessed):
+def is_word_guessed(secret_word: str, letters_guessed: list) -> bool:
     '''
     secret_word: string, the word the user is guessing; assumes all letters are
       lowercase
@@ -125,7 +124,6 @@ def match_with_gaps(my_word, other_word):
 
     return True
 
-
 def show_possible_matches(my_word):
     '''
     my_word: string with _ characters, current guess of secret word
@@ -145,7 +143,14 @@ def show_possible_matches(my_word):
     return result
 
 
-def is_input_valid(user_input):
+def is_input_valid(user_input: str) -> bool:
+    """
+    is_input_valid checks whether a user's input is valid or not
+
+    user_input: str, user's input
+
+    return: bool; True, if the input is valid, False, otherwise
+    """
     user_input = str.lower(user_input)
     return len(user_input) == 1 and str.isalpha(user_input)
 
@@ -181,7 +186,7 @@ def round_start(game_state):
 # return True if warning is subtracted, return False if guess is subtracted
 
 
-def subtract_warning(game_state) -> bool:
+def subtract_warning(game_state: dict) -> bool:
     if game_state["warning_left"] != 0:
         game_state["warning_left"] -= 1
         return True
@@ -230,8 +235,19 @@ def is_letter_already_guessed(game_state):
         return False
 
 
-def penalize_wrong_guess(game_state):
+def penalize_wrong_guess(game_state: dict) -> None:
+    """
+    penalize_wrong_guess subtracts guess left in game state
+
+    game_state: dict, all parameters of hangman game
+    returns: None
+
+    If the wrong guess is vowel (auioe), 2 points subtracted; 
+    otherwise, 1 point subtracted
+    """
+    # TODO: implement this function
     vowels = "aeiou"
+
     if game_state["user_input"] in vowels:
         game_state["guess_left"] -= 2
     else:
@@ -347,7 +363,6 @@ def print_name():
 
 
 if __name__ == "__main__":
-
     secret_word = choose_word(wordlist)
     # hangman(secret_word)
     hangman_with_hints(secret_word)
