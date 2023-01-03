@@ -50,6 +50,7 @@ def choose_word(wordlist):
 # so that it can be accessed from anywhere in the program
 wordlist = load_words()
 
+
 def is_word_guessed(secret_word: str, letters_guessed: list) -> bool:
     '''
     secret_word: string, the word the user is guessing; assumes all letters are
@@ -123,6 +124,7 @@ def match_with_gaps(my_word, other_word):
             return False
 
     return True
+
 
 def show_possible_matches(my_word):
     '''
@@ -245,7 +247,6 @@ def penalize_wrong_guess(game_state: dict) -> None:
     If the wrong guess is vowel (auioe), 2 points subtracted; 
     otherwise, 1 point subtracted
     """
-    # TODO: implement this function
     vowels = "aeiou"
 
     if game_state["user_input"] in vowels:
