@@ -245,7 +245,6 @@ def penalize_wrong_guess(game_state: dict) -> None:
     If the wrong guess is vowel (auioe), 2 points subtracted; 
     otherwise, 1 point subtracted
     """
-    # TODO: implement this function
     vowels = "aeiou"
 
     if game_state["user_input"] in vowels:
